@@ -1,0 +1,42 @@
+
+##############################
+# PCA example                #
+##############################
+
+data2=read.table("C:\\Users\\yxiong\\Desktop\\data2.txt",header=T)
+attach(data2)
+# standardize the data (pca isnot scale invariant)
+  data2.scaled=apply(data2,2,scale)
+  correlation=round(cor(data2.scaled),2)
+  correlation
+
+# apply PCA
+  pca.res=prcomp(data2.scaled,retx=T)
+  pca.res
+  summary(pca.res)
+  plot(pca.res) #display the variances
+  #windows()
+  #screeplot(pca.res,type="lines")
+
+pca.res$x[1:5,1:2] #total 34 rows, display pc1 and pc2 here
+plot(pca.res$x[,1:2], pch="")
+text(pca.res$x[,1:2])
+abline(v=0, lty=2)
+abline(h=0, lty=2)
+
+  corr1 = cor(pca.res$x) #check the corr of principal component
+  round(corr2, 1)
+  biplot(pca.res)
+  abline(0, pca.res$rotation[2,2]/pca.res$rotation[2,1])
+
+##############################
+# factor analysis example    #
+##############################
+
+ res2 = factanal(data2, factors=2, rotation="varimax") #orthogonal rotation , for oblique using promax
+ res2                                  
+#May be unrealistic to assume that factors are uncorrelated. One may obtain a better fit by dropping this assumption.
+
+
+
+ 
