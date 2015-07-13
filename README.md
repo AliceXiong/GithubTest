@@ -1,3 +1,3 @@
 # PCA
 
-School presentations for consulting subject in 2013, near the Thanksgiving festivel:) 
+School presentation for consulting course in 2013, near the Thanksgiving festival:) 
